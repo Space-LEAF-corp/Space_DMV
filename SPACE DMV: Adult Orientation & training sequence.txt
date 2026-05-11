@@ -1,0 +1,241 @@
+---
+
+🚀 SPACE DMV: ADULT ORIENTATION & TRAINING SEQUENCE
+
+“Operational Readiness in Microgravity Environments”
+
+---
+
+1. Arrival Protocol — “Threshold of Neutral Buoyancy”
+
+The adult trainee enters a quiet, dimly lit chamber.
+Soft LEDs trace the outline of the room.
+A calm voice (the Space DMV AI Instructor) speaks:
+
+“Welcome, Operator.
+You are crossing from gravity‑bound instinct into neutral‑force awareness.”
+
+This sets the tone:
+You are not here to “float.”
+You are here to operate in a physics‑accurate environment.
+
+Key Concepts Introduced:
+
+• Microgravity = continuous orbital free‑fall
+• No “up” or “down”
+• All motion is vector‑based
+• All force is conserved
+
+
+Guided Link:
+
+• microgravity fundamentals
+
+
+---
+
+2. Phase One — “Body Control Under Newtonian Law”
+
+The trainee enters a microgravity simulation pod.
+The AI Instructor projects a holographic overlay of their body’s center of mass.
+
+“Your body is a spacecraft.
+Every limb is a thruster.
+Every motion is a maneuver.”
+
+Training Tasks:
+
+• Controlled drift initiation
+• Controlled drift termination
+• Counter‑rotation using limbs
+• Center‑of‑mass stabilization
+
+
+Physics Embedded:
+
+• Newton’s Third Law
+• Angular momentum
+• Reaction control
+
+
+Guided Link:
+
+• microgravity body mechanics
+
+
+---
+
+3. Phase Two — “Surface Interaction & Push‑Off Discipline”
+
+The trainee practices pushing off walls, rails, and anchor points.
+
+“In space, a careless push becomes a collision.
+A precise push becomes a trajectory.”
+
+Training Tasks:
+
+• 1‑finger push (millimeter‑per‑second drift)
+• Palm push (meter‑per‑second drift)
+• Emergency halt using opposite surface
+• Zero‑impact docking with a handrail
+
+
+Physics Embedded:
+
+• Impulse control
+• Momentum management
+• Relative velocity
+
+
+Guided Link:
+
+• push_off_training
+
+
+---
+
+4. Phase Three — “Tool Handling in Free‑Float Conditions”
+
+Tools behave differently in microgravity.
+The trainee learns:
+
+• tether discipline
+• tool drift prediction
+• two‑hand stabilization
+• body‑anchored work posture
+
+
+“A tool is a satellite the moment you release it.
+Treat every object as if it has its own orbit.”
+
+Physics Embedded:
+
+• Inertia
+• Free‑float trajectories
+• Mass distribution
+
+
+Guided Link:
+
+• microgravity_tool_handling
+
+
+---
+
+5. Phase Four — “Emotional Regulation Under Drift”
+
+This is where your Invisible Hammock metaphor becomes the adult version.
+
+The AI Instructor dims the lights and activates a slow rotational drift.
+
+“Your nervous system expects gravity.
+When it is absent, your mind must become the anchor.”
+
+Training Tasks:
+
+• breath‑paced drift control
+• orientation reset
+• panic‑response override
+• vestibular recalibration
+
+
+Psychophysiology Embedded:
+
+• inner‑ear adaptation
+• sensory mismatch
+• proprioceptive recalibration
+
+
+Guided Link:
+
+• microgravity_emotional_regulation
+
+
+---
+
+6. Phase Five — “Operational Navigation & Spatial Awareness”
+
+The trainee enters a full 3D navigation chamber.
+
+Holographic corridors appear.
+Targets drift.
+Obstacles rotate.
+
+“In space, the shortest path is rarely the safest.
+Choose your vectors with intention.”
+
+Training Tasks:
+
+• 3D pathfinding
+• drift‑timing
+• collision avoidance
+• soft‑dock approach
+
+
+Physics Embedded:
+
+• relative motion
+• orbital drift prediction
+• multi‑axis navigation
+
+
+Guided Link:
+
+• 3d_space_navigation
+
+
+---
+
+7. Phase Six — “Emergency Protocols & Zero‑Gravity Crisis Response”
+
+This is the adult‑only section.
+
+Scenarios include:
+
+• uncontrolled spin
+• tool collision
+• partner drift separation
+• air circulation disruption
+• low‑visibility navigation
+
+
+“Calm is your first tool.
+Precision is your second.
+Training is your third.”
+
+Physics Embedded:
+
+• angular momentum bleed‑off
+• tether retrieval
+• air‑flow mapping
+• emergency stabilization
+
+
+Guided Link:
+
+• space_emergency_training
+
+
+---
+
+8. Certification Ritual — “Operator of the Hammock Zone”
+
+The final chamber is quiet.
+A soft blue glow surrounds the trainee.
+
+The AI Instructor speaks:
+
+“You have mastered the invisible forces.
+You have learned to move without gravity.
+You are now certified to operate within the Hammock Zone.”
+
+A digital badge appears:
+
+SPACE DMV — MICROGRAVITY OPERATOR LEVEL I
+
+Guided Link:
+
+• advanced_space_dmv_modules
+
+
+---
