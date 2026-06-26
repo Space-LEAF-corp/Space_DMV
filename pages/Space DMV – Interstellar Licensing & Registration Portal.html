@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Space DMV – Interstellar Licensing & Registration Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-alt: #12182a;
+      --card: #1b2338;
+      --accent: #3fb7ff;
+      --accent-soft: rgba(63, 183, 255, 0.15);
+      --text: #f5f7ff;
+      --muted: #a7b0d4;
+      --danger: #ff6b6b;
+      --border: #2b3550;
+      --success: #4cd964;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1b2540 0, #050814 55%, #02030a 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(
+        to right,
+        rgba(10, 16, 32, 0.95),
+        rgba(12, 20, 40, 0.98)
+      );
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(63, 183, 255, 0.4),
+        0 0 18px rgba(63, 183, 255, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      background: conic-gradient(
+        from 210deg,
+        rgba(63, 183, 255, 0.1),
+        rgba(63, 183, 255, 0.7),
+        rgba(63, 183, 255, 0.1)
+      );
+      opacity: 0.7;
+    }
+
+    .brand-mark span {
+      position: relative;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-text h1 {
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-text p {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      font-size: 0.8rem;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--accent-soft);
+      background: rgba(12, 20, 40, 0.9);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(10, 18, 36, 0.9);
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 10px rgba(76, 217, 100, 0.9);
+    }
+
+    main {
+      flex: 1;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-left {
+      background: linear-gradient(
+        135deg,
+        rgba(27, 35, 56, 0.96),
+        rgba(18, 26, 46, 0.98)
+      );
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(63, 183, 255, 0.18), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(63, 183, 255, 0.12), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 1.6rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+
+    .hero-subtitle {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    .hero-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(10, 16, 32, 0.9);
+      padding: 10px 10px 9px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .hero-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-card-tag {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .hero-actions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: rgba(8, 14, 30, 0.95);
+      color: var(--text);
+      transition: background 0.15s ease, border-color 0.15s ease,
+        transform 0.08s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3fb7ff, #1f8ad1);
+      border-color: rgba(63, 183, 255, 0.7);
+      color: #02040a;
+      font-weight: 600;
+    }
+
+    .btn-outline {
+      background: rgba(8, 14, 30, 0.95);
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary {
+      background: rgba(10, 18, 36, 0.95);
+      border-color: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .btn:hover {
+      border-color: var(--accent-soft);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:hover {
+      border-color: rgba(63, 183, 255, 0.9);
+    }
+
+    .btn span.icon {
+      font-size: 0.9rem;
+    }
+
+    .hero-note {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .hero-right {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(10, 16, 32, 0.96);
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .status-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .status-header span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(76, 217, 100, 0.4);
+      background: rgba(10, 20, 32, 0.95);
+      font-size: 0.75rem;
+      color: var(--success);
+    }
+
+    .status-chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 10px rgba(76, 217, 100, 0.9);
+    }
+
+    .status-body {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .status-list {
+      margin-top: 6px;
+      list-style: none;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .status-list li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .status-list span.bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+    }
+
+    .status-footer {
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .portal-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 18px;
+      margin-top: 4px;
+    }
+
+    .portal-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(10, 16, 32, 0.96);
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .portal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .portal-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .portal-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .portal-body {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .portal-list {
+      list-style: none;
+      margin-top: 6px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .portal-list li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .portal-list span.bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+    }
+
+    .portal-actions {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .section-title {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .appointments {
+      margin-top: 4px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(10, 16, 32, 0.96);
+      padding: 14px 14px 12px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 16px;
+    }
+
+    .appointments h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .appointments p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .appointments-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.78rem;
+    }
+
+    .form-field label {
+      color: var(--muted);
+    }
+
+    .form-field select,
+    .form-field input {
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(8, 14, 30, 0.95);
+      color: var(--text);
+      padding: 6px 8px;
+      font-size: 0.78rem;
+      outline: none;
+    }
+
+    .form-field select:focus,
+    .form-field input:focus {
+      border-color: var(--accent-soft);
+    }
+
+    .appointments-footer {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .compliance {
+      margin-top: 4px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(10, 16, 32, 0.96);
+      padding: 14px 14px 12px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 16px;
+    }
+
+    .compliance h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .compliance p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .compliance-list {
+      list-style: none;
+      margin-top: 6px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .compliance-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .compliance-list span.bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      margin-top: 4px;
+    }
+
+    .compliance-note {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: rgba(5, 8, 16, 0.98);
+      padding: 14px 20px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .portal-section {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .appointments {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .appointments-form {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .compliance {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand-block">
+        <div class="brand-mark">
+          <span>SDMV</span>
+        </div>
+        <div class="brand-text">
+          <h1>Space DMV – Interstellar Licensing & Registration Authority</h1>
+          <p>A nonprofit regulatory division of Space LEAF Corp</p>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#appointments">Appointments</a>
+        <a href="#documents">Forms & Documents</a>
+        <a href="#compliance">Safety & Compliance</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-content">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>Unified Registration Portal</span>
+          </div>
+          <h2 class="hero-title">Space DMV Registration & Licensing</h2>
+          <p class="hero-subtitle">
+            Official front door for interstellar vessel licensing, off‑planet registration,
+            and Earth vehicle subdivision services for vehicles that may leave atmosphere.
+          </p>
+
+          <div class="hero-grid">
+            <article class="hero-card">
+              <div class="hero-card-tag">Portal A</div>
+              <h3>Space DMV</h3>
+              <p>
+                Register interstellar vessels, obtain space operator licenses, and schedule
+                orbital appointments under Space LEAF Corp nonprofit governance.
+              </p>
+            </article>
+
+            <article class="hero-card">
+              <div class="hero-card-tag">Portal B</div>
+              <h3>Earth Vehicle Subdivision</h3>
+              <p>
+                Standard DMV‑style registration for Earth vehicles, with optional off‑planet
+                transfer and atmospheric exit compliance for approved vehicles.
+              </p>
+            </article>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary">
+              <span class="icon">🚀</span>
+              <span>Register Space Vehicle</span>
+            </button>
+            <button class="btn btn-secondary">
+              <span class="icon">🪪</span>
+              <span>Apply for Space License</span>
+            </button>
+            <button class="btn btn-outline">
+              <span class="icon">🚗</span>
+              <span>Earth Vehicle Subdivision</span>
+            </button>
+            <button class="btn btn-outline">
+              <span class="icon">🛰️</span>
+              <span>Off‑Planet Transfer Registration</span>
+            </button>
+          </div>
+
+          <p class="hero-note">
+            All registrations and licenses are subject to trajectory safety review and
+            operator accountability standards. This portal is ceremonial and regulatory,
+            not a government agency.
+          </p>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="status-header">
+          <span class="label">System Status</span>
+          <div class="status-chip">
+            <span class="status-chip-dot"></span>
+            <span>Online – Accepting Appointments</span>
+          </div>
+        </div>
+        <div class="status-body">
+          Space DMV is currently accepting new vessel registrations, license applications,
+          and Earth‑to‑Orbit transfer requests. All submissions are logged under Space LEAF
+          Corp nonprofit oversight.
+        </div>
+        <ul class="status-list">
+          <li>
+            <span class="bullet"></span>
+            <span>Interstellar Vessel Registration – Open</span>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <span>Space Operator Licensing – Open</span>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <span>Earth Vehicle Subdivision – Open</span>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <span>Off‑Planet Transfer Review – Required for exit</span>
+          </li>
+        </ul>
+        <div class="status-footer">
+          For emergency trajectory concerns or misuse of registered vessels, contact the
+          Interstellar Safety Hotline listed in the footer.
+        </div>
+      </aside>
+    </section>
+
+    <!-- Portals -->
+    <section aria-label="Portals">
+      <h2 class="section-title">Portals & Divisions</h2>
+      <p class="section-subtitle">
+        Choose the appropriate portal based on whether you are registering a space vessel,
+        licensing an operator, or managing an Earth vehicle that may leave atmosphere.
+      </p>
+
+      <div class="portal-section">
+        <article class="portal-card">
+          <div class="portal-header">
+            <h3 class="portal-title">Space DMV – Interstellar Vessels</h3>
+            <span class="portal-tag">Primary Portal A</span>
+          </div>
+          <p class="portal-body">
+            For captains, operators, and organizations registering vessels designed to
+            traverse beyond Earth atmosphere, including orbital craft, deep‑space vehicles,
+            and research platforms.
+          </p>
+          <ul class="portal-list">
+            <li>
+              <span class="bullet"></span>
+              <span>Interstellar Vessel Registration & Space VIN assignment</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Space Operator Licensing & certification</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Trajectory Safety Compliance & orbital traffic rules</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Orbital Appointment Scheduling & remote review</span>
+            </li>
+          </ul>
+          <div class="portal-actions">
+            <button class="btn btn-primary">
+              <span class="icon">🚀</span>
+              <span>Enter Space DMV Portal</span>
+            </button>
+            <button class="btn btn-outline">
+              <span class="icon">📄</span>
+              <span>View Space Vessel Requirements</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="portal-card">
+          <div class="portal-header">
+            <h3 class="portal-title">Earth Vehicle Subdivision</h3>
+            <span class="portal-tag">Subdivision Portal B</span>
+          </div>
+          <p class="portal-body">
+            For drivers and owners managing standard Earth vehicle registration, renewal,
+            and title services, with optional off‑planet registration for approved vehicles.
+          </p>
+          <ul class="portal-list">
+            <li>
+              <span class="bullet"></span>
+              <span>Standard DMV‑style registration, tags, and renewal</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Earth‑to‑Orbit Transfer Registration for qualified vehicles</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Atmospheric Exit Compliance & safety conversion review</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Title updates for vehicles designated for off‑planet use</span>
+            </li>
+          </ul>
+          <div class="portal-actions">
+            <button class="btn btn-secondary">
+              <span class="icon">🚗</span>
+              <span>Enter Earth Subdivision Portal</span>
+            </button>
+            <button class="btn btn-outline">
+              <span class="icon">📄</span>
+              <span>View Earth Vehicle Guidelines</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="portal-card">
+          <div class="portal-header">
+            <h3 class="portal-title">Off‑Planet Registration & Transfer</h3>
+            <span class="portal-tag">Bridge Between Portals</span>
+          </div>
+          <p class="portal-body">
+            For vehicles and vessels transitioning from Earth‑bound registration to
+            off‑planet status. This bridge ensures safety, accountability, and clear
+            lineage of registration records.
+          </p>
+          <ul class="portal-list">
+            <li>
+              <span class="bullet"></span>
+              <span>Off‑Planet Transfer Form & review</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Trajectory Weapon Risk Mitigation assessment</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Operator Accountability Clause acknowledgment</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Interstellar Insurance & liability requirements</span>
+            </li>
+          </ul>
+          <div class="portal-actions">
+            <button class="btn btn-outline">
+              <span class="icon">🛰️</span>
+              <span>Start Off‑Planet Transfer</span>
+            </button>
+            <button class="btn btn-outline">
+              <span class="icon">📘</span>
+              <span>Read Transfer Policy</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Appointments -->
+    <section id="appointments" aria-label="Appointments">
+      <h2 class="section-title">Appointments & Scheduling</h2>
+      <p class="section-subtitle">
+        Schedule an appointment for licensing, registration, or safety review. All
+        appointments are logged and time‑stamped for accountability.
+      </p>
+
+      <div class="appointments">
+        <div>
+          <h3>Appointment Types</h3>
+          <p>
+            Choose the appointment type that matches your needs. Space DMV supports
+            in‑person, orbital station, and remote review appointments depending on
+            vessel class and operator location.
+          </p>
+          <ul class="compliance-list">
+            <li>
+              <span class="bullet"></span>
+              <span>Space Operator License Application & testing</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Interstellar Vessel Initial Registration</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Earth Vehicle Subdivision Registration & renewal</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Off‑Planet Transfer Safety Review</span>
+            </li>
+          </ul>
+          <p class="appointments-footer">
+            Appointment availability may vary by region, orbital station, and vessel
+            classification. Remote review is preferred for high‑risk trajectories.
+          </p>
+        </div>
+
+        <div>
+          <h3>Request Appointment (Prototype)</h3>
+          <p>
+            This form is a ceremonial prototype for the Space DMV portal. In a live
+            system, submissions would be processed by secure backend services.
+          </p>
+
+          <div class="appointments-form">
+            <div class="form-field">
+              <label for="appt-type">Appointment Type</label>
+              <select id="appt-type" name="appt-type">
+                <option>Space Operator License</option>
+                <option>Interstellar Vessel Registration</option>
+                <option>Earth Vehicle Registration</option>
+                <option>Off‑Planet Transfer Review</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="location">Location</label>
+              <select id="location" name="location">
+                <option>Earth – Local DMV Subdivision</option>
+                <option>Orbital Station – Remote Terminal</option>
+                <option>Remote – Secure Digital Review</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="date">Preferred Date</label>
+              <input id="date" name="date" type="date" />
+            </div>
+
+            <div class="form-field">
+              <label for="code">Confirmation Code (assigned later)</label>
+              <input id="code" name="code" type="text" placeholder="Pending" />
+            </div>
+          </div>
+
+          <div class="hero-actions" style="margin-top: 10px;">
+            <button class="btn btn-primary">
+              <span class="icon">📅</span>
+              <span>Submit Appointment Request</span>
+            </button>
+            <button class="btn btn-outline">
+              <span class="icon">🔍</span>
+              <span>Check Existing Appointment</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance & Safety -->
+    <section id="compliance" aria-label="Compliance & Safety">
+      <h2 class="section-title">Compliance & Safety Standards</h2>
+      <p class="section-subtitle">
+        Space DMV exists to prevent misuse of high‑energy, high‑velocity equipment that
+        could become trajectory weapons. All registrations and licenses are bound by
+        strict safety and accountability clauses.
+      </p>
+
+      <div class="compliance">
+        <div>
+          <h3>Core Safety Principles</h3>
+          <p>
+            Every registered vessel and licensed operator is expected to uphold the
+            following principles. These standards are designed to protect both the
+            operator and any potential bystanders or unintended targets.
+          </p>
+          <ul class="compliance-list">
+            <li>
+              <span class="bullet"></span>
+              <span>
+                <strong>Trajectory Weapon Risk Mitigation:</strong> Vessels must be
+                designed, operated, and routed to minimize the risk of becoming
+                uncontrolled projectiles or weapons.
+              </span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>
+                <strong>Operator Accountability Clause:</strong> The operator is
+                responsible for all actions taken during vessel operation, including
+                misuse, negligence, or situational mishaps.
+              </span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>
+                <strong>Safety‑First Design:</strong> Equipment is built for safety,
+                sharing, and collaboration, not for harm or weaponization.
+              </span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>
+                <strong>Orbital Traffic & Exit Protocols:</strong> All atmospheric exit
+                and orbital maneuvers must follow approved routes and timing windows.
+              </span>
+            </li>
+          </ul>
+          <p class="compliance-note">
+            Space DMV is not legally accountable for operator misuse of equipment that
+            was designed for safety and collaboration. Accountability rests with the
+            operator and any governing bodies overseeing their mission.
+          </p>
+        </div>
+
+        <div>
+          <h3>Interstellar Insurance & Legal Notices</h3>
+          <p>
+            Space DMV operates as a nonprofit regulatory division of Space LEAF Corp.
+            It provides ceremonial and practical guidance, but does not replace local,
+            national, or international law.
+          </p>
+          <ul class="compliance-list">
+            <li>
+              <span class="bullet"></span>
+              <span>
+                Interstellar insurance is strongly recommended for all registered vessels
+                and licensed operators.
+              </span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>
+                Off‑planet registration does not exempt operators from Earth‑based legal
+                frameworks or international space treaties.
+              </span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>
+                Space DMV records are maintained for transparency, stewardship, and
+                future audit by cooperative agencies.
+              </span>
+            </li>
+          </ul>
+          <p class="compliance-note">
+            For full legal language, refer to the Space DMV License & Registration
+            Policy document and the Space LEAF Corp nonprofit charter.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents -->
+    <section id="documents" aria-label="Forms & Documents">
+      <h2 class="section-title">Forms & Document Center</h2>
+      <p class="section-subtitle">
+        Download or review the ceremonial and regulatory documents that govern Space DMV
+        operations, licensing, and registration.
+      </p>
+
+      <div class="portal-section">
+        <article class="portal-card">
+          <div class="portal-header">
+            <h3 class="portal-title">Space License Application</h3>
+            <span class="portal-tag">Operators</span>
+          </div>
+          <p class="portal-body">
+            Application form for captains and operators seeking a Space DMV license to
+            operate interstellar vessels under Space LEAF Corp stewardship.
+          </p>
+          <div class="portal-actions">
+            <button class="btn btn-outline">
+              <span class="icon">📄</span>
+              <span>Download License Application</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="portal-card">
+          <div class="portal-header">
+            <h3 class="portal-title">Vessel Registration Form</h3>
+            <span class="portal-tag">Vessels</span>
+          </div>
+          <p class="portal-body">
+            Registration form for interstellar vessels, orbital craft, and research
+            platforms requiring a Space VIN and safety review.
+          </p>
+          <div class="portal-actions">
+            <button class="btn btn-outline">
+              <span class="icon">📄</span>
+              <span>Download Vessel Registration</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="portal-card">
+          <div class="portal-header">
+            <h3 class="portal-title">Off‑Planet Transfer Form</h3>
+            <span class="portal-tag">Bridge</span>
+          </div>
+          <p class="portal-body">
+            Form for Earth‑registered vehicles transitioning to off‑planet status,
+            including atmospheric exit compliance and safety conversion.
+          </p>
+          <div class="portal-actions">
+            <button class="btn btn-outline">
+              <span class="icon">📄</span>
+              <span>Download Transfer Form</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-inner">
+      <div>
+        Space DMV – Interstellar Licensing & Registration Authority · Nonprofit division
+        of Space LEAF Corp · Ceremonial & regulatory portal.
+      </div>
+      <div class="footer-links">
+        <a href="#appointments">Appointments</a>
+        <a href="#documents">Forms</a>
+        <a href="#compliance">Safety</a>
+        <a href="#">Privacy</a>
+        <a href="#">Interstellar Safety Hotline</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
